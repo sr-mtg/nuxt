@@ -28,7 +28,30 @@ export default defineNuxtPlugin(nuxtApp => {
       themes: {
         lightTheme
       }
-    }
+    },
+
+    // Add the custom iconset
+    // icons: {
+    //   defaultSet: "custom",
+    //   aliases,
+    //   sets: {
+    //     custom,
+    //   },
+    // },
+
+    display: {
+      mobileBreakpoint: 'sm',
+      thresholds: {
+        xs: 0,
+        sm: 340,
+        md: 540,
+        lg: 800,
+        xl: 1280,
+      },
+    },
+
+   
+    // $vuetify.breakpoint.mobile
   })
 
   nuxtApp.vueApp.use(vuetify)
