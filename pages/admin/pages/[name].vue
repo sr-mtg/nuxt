@@ -3,14 +3,21 @@
   // const display = ref(useDisplay())
   // console.log("vuetify", display.value)
   
+  // definePageMeta({
+  //   layout: 'test'
+  // })
 
   const route = useRoute()
-  // const vuetify = 
+  const name = route.params.name
 </script>
 
 <template>
-  <p class="ms-8 text-subtitle-2 font-weight-regular text-medium-emphasis text-start">{{ route.path }} :</p>
-  <p class="mt-3 mb-4 text-subtitle-2 font-weight-medium text-info text-center">Create {{ route.params.name }} Route UI</p>
+  <AdminAppBar 
+    :path="route.path"
+    :name="route.params.name"
+  />
+  <!-- <p class="ms-8 text-subtitle-2 font-weight-regular text-medium-emphasis text-start">{{ route.path }} :</p>
+  <p class="mt-3 mb-4 text-subtitle-2 font-weight-medium text-info text-center">Create {{ route.params.name }} Route UI</p> -->
   <v-divider color="primary" />
 
   <!-- create content of page -->
