@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h3>default layout</h3>
+    <NavBar />
+    <slot />
   </div>
-
-  <slot />
 </template>

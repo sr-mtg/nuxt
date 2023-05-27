@@ -38,7 +38,7 @@ const prop = defineProps<AdminAppBar>()
 <template>
   <v-layout>
     <v-app-bar 
-      color="primary" 
+      color="warning" 
       density="compact"
       elevation="0"
     >
