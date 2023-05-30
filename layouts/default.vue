@@ -1,6 +1,8 @@
 <template>
-  <div>
+  <v-layout>
     <NavBar />
-    <slot />
-  </div>
+    <v-main>
+      <slot />
+    </v-main>
+  </v-layout>
 </template>

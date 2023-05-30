@@ -1,6 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
-  layout: "admin-page",
+  layout: "admin",
 });
 </script>
 <template>
