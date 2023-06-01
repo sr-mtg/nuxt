@@ -32,20 +32,18 @@ interface AdminAppBar {
   path: string
   name: string | string[]
 }
+
 const prop = defineProps<AdminAppBar>()
+const desirePage = ref('')
 
-const search = ref(false)
-const specificPage = ref('')
-
-const magnifyClick = () => {
-  if(!search.value) search.value = !search.value
-  else if(Boolean(specificPage.value)) goAdmin()
-  else search.value = !search.value
-   
+const goHome = () => {
+  navigateTo('/')
 }
-
-const goAdmin = () => {
-  router.push({ name: 'admin-pages-name', params: { name: specificPage.value } })
+const enterRoute = () => {
+  console.log('desirePage', desirePage.value)
+  console.log('desirePage.trim()', desirePage.value.trim())
+  if(Boolean(desirePage.value))
+    router.push({ name: 'admin-pages-name', params: { name: desirePage.value } })
 }
 
 </script>
@@ -56,9 +54,17 @@ const goAdmin = () => {
     density="compact"
     elevation="0"
   >
-    <!-- <template v-slot:prepend>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-    </template> -->
+    <template v-slot:prepend>
+      <v-btn 
+        color="surface" 
+        size="small" 
+        variant="outlined" 
+        prepend-icon="mdi-home-circle"
+        @click="goHome"
+      >
+        <span class="font-weight-bold">home</span>
+      </v-btn>
+    </template>
 
     <!-- S title -->
     <v-app-bar-title v-if="Boolean(name)">
@@ -71,46 +77,25 @@ const goAdmin = () => {
       <v-btn color="surface" size="small" variant="outlined" prepend-icon="mdi-magnify-expand">overview</v-btn>
     </template>
     <!-- E overview button -->
-    <!-- S -->
+    <!-- S search section -->
     <v-spacer />
-    <div class="d-flex flex-row-reverse px-4" style="width: 20rem; border: 2px solid red;">
+    <div class="d-flex flex-row-reverse px-4" style="width: 25rem;">
     <!-- <div class="w-80"> -->
-      <v-text-field 
-        v-if="search"
-        v-model="specificPage"
+      <v-text-field
+        v-model="desirePage"
+        @keydown.enter="enterRoute"
+        placeholder="Enter the desired page name"
         hide-details 
         density="compact" 
         variant="solo-filled"
-        bg-color="#ffffff50"
-        rounded
+        bg-color="primary"
         flat
-
       >
       <template v-slot:append-inner>
-        <v-icon size="small" @click="search = !search">mdi-magnify</v-icon>
-        <v-icon size="small" @click="search = !search">mdi-close</v-icon>
+        <v-icon @click="enterRoute">mdi-magnify</v-icon>
       </template>
       </v-text-field>
-      <!-- variant="outlined"  -->
-      <v-btn
-        v-else
-        icon
-        size="small"
-        @click="magnifyClick()"
-      >
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
     </div>
-    <!-- v-if="!search" -->
-    <!-- <v-btn
-      variant="outlined" 
-      icon
-      size="small"
-      @click="magnifyClick()"
-    >
-      <v-icon>mdi-magnify</v-icon>
-    </v-btn> -->
-
-    <!-- E -->
+    <!-- E search section -->
   </v-app-bar>
 </template>

@@ -2,7 +2,9 @@
   <v-layout>
     <NavBar />
     <v-main>
-      <slot />
+      <v-responsive max-width="1200" class="mx-auto">
+        <slot />
+      </v-responsive>
     </v-main>
   </v-layout>
 </template>

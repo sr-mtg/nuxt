@@ -2,6 +2,10 @@
   // import { useDisplay } from 'vuetify'
   // const display = ref(useDisplay())
   // console.log("vuetify", display.value)
+
+  definePageMeta({
+    layout: "admin",
+  });
   
 </script>
 

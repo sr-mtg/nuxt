@@ -11,7 +11,9 @@
       :name="route.params.name"
     />
     <v-main>
-      <slot />
+      <v-responsive class="mx-auto">
+        <slot />
+      </v-responsive>
     </v-main>
   </v-layout>
 </template>
