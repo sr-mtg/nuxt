@@ -25,7 +25,7 @@
   <v-row align="center" justify="start" dense>
     <!-- content section -->
     <AdminContentContainer />
-
+    <v-divider vertical />
     <!-- grid definition section -->
     <AdminDefineGrid />
   </v-row>
